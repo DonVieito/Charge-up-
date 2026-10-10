@@ -2,7 +2,7 @@
   "name": "Charge Up",
   "short_name": "Charge Up",
   "description": "Laadkaart Nederland",
-  "start_url": "./index.html?v=09",
+  "start_url": "./index.html?v=10",
   "scope": "./",
   "display": "standalone",
   "background_color": "#102b24",
