@@ -1,1 +1,3 @@
-const NAME='charge-up-v08';self.addEventListener('install',e=>{self.skipWaiting()});self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('charge-up-')&&k!==NAME).map(k=>caches.delete(k)))));self.clients.claim()});
+// Charge Up 0.9: intentionally no caching while debugging map and GPS.
+self.addEventListener('install',()=>self.skipWaiting());
+self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const key of await caches.keys())if(key.startsWith('charge-up-'))await caches.delete(key);await self.clients.claim();})()));
