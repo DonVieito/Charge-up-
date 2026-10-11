@@ -1,0 +1,7 @@
+Charge Up 2.4 Hyperspeed Beta
+
+Belangrijk: upload alleen index.html om de interface te testen. Laat bestaande data/, scripts/ en .github/ op GitHub staan.
+
+Wijziging: duizenden HTML-laadpaalmarkeringen vervangen door een WebGL GeoJSON-bron met clustering. Kaartlagen weer zichtbaar gemaakt. Bestaande GPS, navigatie en DOT-NL-datasetlogica blijven behouden.
+
+Dit is een prestatiegerichte beta. Werkelijke snelheid nog niet op jouw Android getest. Maak eerst een kopie van de huidige index.html.
