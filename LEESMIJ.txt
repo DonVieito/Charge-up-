@@ -1,0 +1,3 @@
+Charge Up 2.4.3 Hyperspeed Auto
+Upload uitsluitend index.html naar de hoofdmap van GitHub. Laat data, scripts en .github ongemoeid.
+Laadpunten worden automatisch opgehaald na het bewegen of zoomen van de kaart, bij zoomniveau 10 of hoger.
