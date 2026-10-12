@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#102b24"><meta name="description" content="Charge Up – laadkaart in ontwikkeling"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icons/icon-192.png"><title>Charge Up 2.4.2 Auto GPS Fix · 3D Navigatie</title>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#102b24"><meta name="description" content="Charge Up – laadkaart in ontwikkeling"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icons/icon-192.png"><title>Charge Up 2.4.5 Laadnetwerken · SmoothDrive</title>
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.css">
 <style>
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:system-ui,-apple-system,Arial,sans-serif;background:#dce7e1}#map{position:absolute;inset:0;width:100%;height:100%;height:100dvh}.maplibregl-map{width:100%;height:100%}.top{position:fixed;z-index:10;top:calc(12px + env(safe-area-inset-top));left:12px;right:12px;display:flex;justify-content:space-between;pointer-events:none}.logo{background:#102b24;color:#fff;border-radius:17px;padding:12px 15px;font-weight:900;box-shadow:0 4px 20px #0003;letter-spacing:.4px}.logo b{color:#66f3a4}.logo small{font-weight:500;opacity:.7}.actions{position:fixed;right:12px;bottom:calc(110px + env(safe-area-inset-bottom));z-index:12;display:grid;gap:10px}button{appearance:none;border:0;border-radius:16px;background:white;color:#123a2a;font-weight:800;font-size:15px;padding:13px 16px;min-height:52px;box-shadow:0 4px 18px #0003;touch-action:manipulation}button.primary{background:#087d50;color:white}.status{position:fixed;z-index:12;bottom:calc(12px + env(safe-area-inset-bottom));left:12px;right:12px;background:#102b24f2;color:white;padding:14px 16px;border-radius:16px;font-size:13px;line-height:1.4;box-shadow:0 4px 18px #0003;min-height:66px}.status strong{display:block;font-size:14px;margin-bottom:3px}.maplibregl-control-container .maplibregl-ctrl-bottom-right{bottom:85px}.maplibregl-ctrl-attrib{font-size:10px!important}.maplibregl-ctrl-logo{display:none!important}.gps-dot{height:18px;width:18px;background:#1987ff;border:3px solid white;border-radius:50%;box-shadow:0 0 0 4px #1987ff55,0 1px 10px #0006} .error{background:#652d25}.charge-pin{padding:0!important;min-height:42px!important;min-width:42px!important;width:42px;height:42px;touch-action:manipulation;pointer-events:auto;background:#087d50;color:#fff;border:2px solid #fff;border-radius:50%;display:grid;place-items:center;font-size:19px;font-weight:900;box-shadow:0 2px 8px #0005;cursor:pointer}.charge-pin.fast{background:#1356c6}.charge-pin.unknown{background:#61746e}.station-card{position:fixed;z-index:1000;bottom:calc(91px + env(safe-area-inset-bottom));left:12px;right:12px;background:#fff;color:#142b24;border-radius:18px;padding:16px;box-shadow:0 5px 25px #0005;max-height:45vh;overflow:auto}.station-card[hidden]{display:none}.station-card h3{margin:0 30px 7px 0}.station-card p{margin:5px 0;font-size:14px}.station-card a{display:inline-block;margin-top:10px;color:#087d50;font-weight:800}.close-card{float:right;min-height:35px;padding:5px 10px}.badge{font-size:11px;background:#d9f4e4;color:#075235;padding:5px 8px;border-radius:10px}.actions{bottom:calc(110px + env(safe-area-inset-bottom))}.actions button{padding:10px 12px;min-height:46px}.status{min-height:70px}
@@ -13,7 +13,7 @@
 .route-panel{position:fixed;z-index:15;left:12px;right:12px;top:calc(73px + env(safe-area-inset-top));background:#102b24ed;color:white;padding:12px 14px;border-radius:15px;box-shadow:0 5px 20px #0003;max-width:460px;font-size:13px;line-height:1.35;pointer-events:none}
 .route-panel[hidden]{display:none}.route-panel strong{display:block;font-size:16px;margin-bottom:4px}.route-panel small{color:#d0e9de}
 .status{bottom:calc(9px + env(safe-area-inset-bottom));left:12px;right:12px;max-width:calc(100% - 24px)}
- .chargeup-fixed-pin{appearance:none;display:grid;place-items:center;width:27px;height:27px;min-width:27px;min-height:27px;padding:0;border-radius:50%;border:2px solid white;background:#087d50;color:white;font-size:17px;font-weight:900;box-shadow:0 2px 7px #0007;cursor:pointer;touch-action:manipulation}.chargeup-fixed-pin.fast{background:#2769bf} </style><style id="v21-controls">.quick-controls{display:flex;flex-direction:column;gap:9px;align-items:flex-end}.quick-controls button{width:52px;height:52px;min-width:52px;padding:0;font-size:26px;border-radius:16px}.quick-controls #gpsBtn{font-size:25px}.actions>button{min-width:unset}.extra-actions{max-height:55dvh}</style><style id="diagnose-css">#diagPanel{position:fixed;z-index:1100;top:90px;left:12px;right:12px;max-width:550px;max-height:62dvh;overflow:auto;background:#102b24;color:white;border-radius:16px;padding:16px;box-shadow:0 5px 22px #0008;font-size:13px}#diagPanel[hidden]{display:none}#diagPanel pre{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.45 monospace;background:#071b16;padding:10px;border-radius:8px;max-height:34dvh;overflow:auto}#diagPanel button{margin:4px;font-size:13px;min-height:40px}#diagPanel h3{margin:0 0 8px}</style><style id="speed-style">#speedometer{position:fixed;z-index:14;left:12px;top:calc(78px + env(safe-area-inset-top));width:84px;min-height:85px;border:3px solid #fff;border-radius:20px;background:#102b24ed;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 4px 18px #0005;pointer-events:none}#speedValue{font-size:33px;line-height:1;font-weight:900;font-variant-numeric:tabular-nums}#speedometer small{font-size:12px;margin-top:4px;font-weight:700}#speedometer .speed-note{font-size:9px;opacity:.75;margin-top:3px}</style></head><body><div id="map" aria-label="Interactieve kaart van Nederland"></div><div class="top"><div class="logo">↟ <b>CHARGE</b> UP <small>2.4.2 Auto GPS Fix ⚡ β</small></div></div><div id="speedometer" aria-label="GPS-snelheid"><span id="speedValue">--</span><small>km/u</small><span class="speed-note">GPS-snelheid</span></div><div class="actions"><div id="extraActions" class="extra-actions" hidden><button id="viewBtn" type="button" aria-pressed="true">▤ 2D-weergave</button><button id="searchBtn" type="button">⚡ Zoek laadpunten</button><button id="diagBtn" type="button">🔍 DOT-NL diagnose</button><button id="routePickBtn" type="button">📍 Bestemming kiezen</button><button id="routeStopBtn" type="button">✕ Route stoppen</button><button id="nlBtn" type="button">🇳🇱 Heel Nederland</button></div><button id="menuBtn" type="button" aria-expanded="false" aria-controls="extraActions">☰ Menu</button><div class="quick-controls"><button id="zoomBtn" type="button" aria-label="Dichterbij" title="Dichterbij">+</button><button class="primary" id="gpsBtn" type="button" aria-label="Mijn locatie en volgen" title="Mijn locatie en volgen">◎</button></div></div><div id="routePanel" class="route-panel" hidden><strong id="routeTitle">Route</strong><span id="routeDetails"></span><small id="routeHint"></small></div><section id="stationCard" class="station-card" hidden aria-live="polite"></section><section id="diagPanel" hidden><h3>DOT-NL verbinding · 2.4</h3><p>Hier zie je de werkelijke netwerkstatus. Bij een browserblokkade kan alleen ‘Failed to fetch’ zichtbaar zijn.</p><pre id="diagLog">Nog geen test uitgevoerd.</pre><button id="diagTest" type="button">Opnieuw testen</button><button id="diagCopy" type="button">Kopieer uitslag</button><button id="diagClose" type="button">Sluiten</button></section><div id="status" class="status" role="status" aria-live="polite"><strong>Kaart laden…</strong>Even geduld.</div>
+ .chargeup-fixed-pin{appearance:none;display:grid;place-items:center;width:27px;height:27px;min-width:27px;min-height:27px;padding:0;border-radius:50%;border:2px solid white;background:#087d50;color:white;font-size:17px;font-weight:900;box-shadow:0 2px 7px #0007;cursor:pointer;touch-action:manipulation}.chargeup-fixed-pin.fast{background:#2769bf} </style><style id="v21-controls">.quick-controls{display:flex;flex-direction:column;gap:9px;align-items:flex-end}.quick-controls button{width:52px;height:52px;min-width:52px;padding:0;font-size:26px;border-radius:16px}.quick-controls #gpsBtn{font-size:25px}.actions>button{min-width:unset}.extra-actions{max-height:55dvh}</style><style id="diagnose-css">#diagPanel{position:fixed;z-index:1100;top:90px;left:12px;right:12px;max-width:550px;max-height:62dvh;overflow:auto;background:#102b24;color:white;border-radius:16px;padding:16px;box-shadow:0 5px 22px #0008;font-size:13px}#diagPanel[hidden]{display:none}#diagPanel pre{white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.45 monospace;background:#071b16;padding:10px;border-radius:8px;max-height:34dvh;overflow:auto}#diagPanel button{margin:4px;font-size:13px;min-height:40px}#diagPanel h3{margin:0 0 8px}</style><style id="speed-style">#speedometer{position:fixed;z-index:14;left:12px;top:calc(78px + env(safe-area-inset-top));width:84px;min-height:85px;border:3px solid #fff;border-radius:20px;background:#102b24ed;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 4px 18px #0005;pointer-events:none}#speedValue{font-size:33px;line-height:1;font-weight:900;font-variant-numeric:tabular-nums}#speedometer small{font-size:12px;margin-top:4px;font-weight:700}#speedometer .speed-note{font-size:9px;opacity:.75;margin-top:3px}</style></head><body><div id="map" aria-label="Interactieve kaart van Nederland"></div><div class="top"><div class="logo">↟ <b>CHARGE</b> UP <small>2.4.5 Laadnetwerken ⚡ β</small></div></div><div id="speedometer" aria-label="GPS-snelheid"><span id="speedValue">--</span><small>km/u</small><span class="speed-note">GPS-snelheid</span></div><div class="actions"><div id="extraActions" class="extra-actions" hidden><button id="satBtn" type="button" aria-pressed="false">🛰️ Satellietkaart</button><button id="viewBtn" type="button" aria-pressed="true">▤ 2D-weergave</button><button id="networkBtn" type="button">🏷️ Laadnetwerken: Alle</button><button id="searchBtn" type="button">⚡ Zoek laadpunten</button><button id="diagBtn" type="button">🔍 DOT-NL diagnose</button><button id="routePickBtn" type="button">📍 Bestemming kiezen</button><button id="routeStopBtn" type="button">✕ Route stoppen</button><button id="nlBtn" type="button">🇳🇱 Heel Nederland</button></div><button id="menuBtn" type="button" aria-expanded="false" aria-controls="extraActions">☰ Menu</button><div class="quick-controls"><button id="zoomBtn" type="button" aria-label="Dichterbij" title="Dichterbij">+</button><button class="primary" id="gpsBtn" type="button" aria-label="Mijn locatie en volgen" title="Mijn locatie en volgen">◎</button></div></div><div id="routePanel" class="route-panel" hidden><strong id="routeTitle">Route</strong><span id="routeDetails"></span><small id="routeHint"></small></div><section id="stationCard" class="station-card" hidden aria-live="polite"></section><section id="diagPanel" hidden><h3>DOT-NL verbinding · 2.4</h3><p>Hier zie je de werkelijke netwerkstatus. Bij een browserblokkade kan alleen ‘Failed to fetch’ zichtbaar zijn.</p><pre id="diagLog">Nog geen test uitgevoerd.</pre><button id="diagTest" type="button">Opnieuw testen</button><button id="diagCopy" type="button">Kopieer uitslag</button><button id="diagClose" type="button">Sluiten</button></section><div id="status" class="status" role="status" aria-live="polite"><strong>Kaart laden…</strong>Even geduld.</div>
 <script src="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.js"></script>
 <script>
 (()=>{'use strict';
@@ -42,8 +42,28 @@ const NL=[[3.1,50.7],[7.3,53.65]];const searchBtn=document.getElementById('searc
 function reset(){if(!map)return;stationCard.hidden=true;firstFix=true;map.resize();map.fitBounds(NL,{padding:{top:85,bottom:105,left:24,right:24},pitch:mode3D?55:0,bearing:0,duration:550});msg('Nederland in beeld','Tik op Mijn locatie om terug te keren naar jouw omgeving.');}
 nlBtn.addEventListener('click',reset);
 function gpsError(e){document.getElementById('speedValue').textContent='--';const explanations={1:'Locatietoegang geweigerd. Controleer in Chrome de locatietoestemming voor deze website.',2:'Je telefoon kan momenteel geen positie bepalen.',3:'GPS heeft te lang nodig. Probeer buiten opnieuw.'};msg('GPS niet beschikbaar',explanations[e.code]||e.message||'Onbekende GPS-fout.',true);gpsBtn.textContent='◎ Opnieuw proberen';}
+// SmoothDrive: visuele interpolatie tussen GPS-metingen. GPS zelf blijft ongewijzigd.
+let smoothPoint=null,smoothFrom=null,smoothTo=null,smoothStart=0,smoothDuration=1000,smoothFrame=0;
+function animateGPS(t){
+ if(!marker||!smoothTo){smoothFrame=0;return;}
+ const u=Math.min(1,Math.max(0,(t-smoothStart)/smoothDuration));
+ const k=u*u*(3-2*u);
+ const pos=[smoothFrom[0]+(smoothTo[0]-smoothFrom[0])*k,smoothFrom[1]+(smoothTo[1]-smoothFrom[1])*k];
+ marker.setLngLat(pos);smoothPoint=pos;
+ if(u<1)smoothFrame=requestAnimationFrame(animateGPS);else smoothFrame=0;
+}
+function moveGPSMarker(loc,accuracy){
+ if(!marker){const dot=document.createElement('div');dot.className='gps-dot';marker=new maplibregl.Marker({element:dot,anchor:'center'}).setLngLat(loc).addTo(map);smoothPoint=loc;return;}
+ if(!smoothPoint){marker.setLngLat(loc);smoothPoint=loc;return;}
+ const gap=distanceKm(smoothPoint[1],smoothPoint[0],loc[1],loc[0]);
+ if(accuracy>120)return; // Vermijd een grote GPS-uitschieter.
+ if(smoothFrame)cancelAnimationFrame(smoothFrame);
+ if(gap>0.2){marker.setLngLat(loc);smoothPoint=loc;return;} // Geen animatie over grote sprongen.
+ smoothFrom=[...smoothPoint];smoothTo=loc;smoothStart=performance.now();smoothDuration=1100;
+ smoothFrame=requestAnimationFrame(animateGPS);
+}
 function updateGPS(p){const {latitude,longitude,accuracy}=p.coords;const loc=[longitude,latitude];if(!Number.isFinite(latitude)||!Number.isFinite(longitude))return;
-if(!marker){const dot=document.createElement('div');dot.className='gps-dot';marker=new maplibregl.Marker({element:dot,anchor:'center'}).setLngLat(loc).addTo(map);}else marker.setLngLat(loc);
+moveGPSMarker(loc,accuracy);
 const ring={type:'Feature',properties:{},geometry:{type:'Point',coordinates:loc}};
 // Draw accuracy radius in metres as a 64-point GeoJSON polygon.
 const pts=[];const latRad=latitude*Math.PI/180;const r=Math.max(1,accuracy);for(let i=0;i<=64;i++){const a=i*Math.PI*2/64;pts.push([longitude+(r*Math.cos(a))/(111320*Math.max(.05,Math.cos(latRad))),latitude+(r*Math.sin(a))/111320]);}
@@ -63,12 +83,30 @@ watch=navigator.geolocation.watchPosition(updateGPS,gpsError,{enableHighAccuracy
 function clearPins(){pins.forEach(pin=>pin.remove());pins=[];stations=[];if(map&&map.getSource('chargers'))map.getSource('chargers').setData({type:'FeatureCollection',features:[]});}
 function escapeText(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function showStation(item){const t=item.tags||{},lat=Number(item.lat??item.center?.lat),lon=Number(item.lon??item.center?.lon);
-const name=t.name||t.operator||'Laadpunt';const fromNDW=item.source==='DOT-NL';const addr=[t['addr:street'],t['addr:housenumber'],t['addr:city']].filter(Boolean).join(' ');
+const name=t.name||t.operator||'Laadpunt';const network=stationNetwork(item);const fromNDW=item.source==='DOT-NL';const addr=[t['addr:street'],t['addr:housenumber'],t['addr:city']].filter(Boolean).join(' ');
 const power=t['socket:ccs:output']||t['socket:type2:output']||t['charging_station:output']||t.capacity||'Niet vermeld';
 const plugs=Object.entries(t).filter(([k,v])=>k.startsWith('socket:')&&!k.includes(':output')&&v!=='no').map(([k,v])=>k.replace('socket:','')+': '+v).slice(0,6).join(' · ');
-stationCard.innerHTML='<button class="close-card" aria-label="Sluiten" type="button">✕</button><h3>'+escapeText(name)+'</h3><p><span class="badge">'+escapeText(fromNDW?'DOT-NL · NDW':'OpenStreetMap · reservebron')+'</span></p><p>📍 '+escapeText(addr||'Adres niet opgegeven')+'</p><p>⚡ Vermogen/capaciteit: '+escapeText(power)+'</p><p>🔌 Aansluitingen: '+escapeText(plugs||'Niet vermeld')+'</p><div class="availability"><b>Bezetting per aansluiting:</b> onbekend<br>Live beschikbaarheid is nog niet gekoppeld.<br><b>Laadprijs:</b> onbekend</div><a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(lat+','+lon)+'">Google Maps ↗</a><button type="button" id="routeToStation">Route in Charge Up</button>';
+stationCard.innerHTML='<button class="close-card" aria-label="Sluiten" type="button">✕</button><h3>'+escapeText(name)+'</h3><p><span class="badge">'+escapeText(fromNDW?'DOT-NL · NDW':'OpenStreetMap · reservebron')+'</span></p><p>🏷️ Laadnetwerk: '+escapeText(network)+' (bronvermelding; toegang zelf controleren)</p><p>📍 '+escapeText(addr||'Adres niet opgegeven')+'</p><p>⚡ Vermogen/capaciteit: '+escapeText(power)+'</p><p>🔌 Aansluitingen: '+escapeText(plugs||'Niet vermeld')+'</p><div class="availability"><b>Bezetting per aansluiting:</b> onbekend<br>Live beschikbaarheid is nog niet gekoppeld.<br><b>Laadprijs:</b> onbekend</div><a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(lat+','+lon)+'">Google Maps ↗</a><button type="button" id="routeToStation">Route in Charge Up</button>';
 stationCard.querySelector('button').onclick=()=>stationCard.hidden=true;const rb=stationCard.querySelector('#routeToStation');if(rb)rb.onclick=()=>planRoute(lon,lat,name);stationCard.hidden=false;msg('Laadstation geselecteerd',name+' · Bekijk de informatiekaart.');}
-function renderStations(items){
+// Laadnetwerkherkenning op basis van bronmetadata; geen toegangsgarantie.
+ const NETWORKS=['Alle','Tesla','BYD','Fastned','IONITY','Shell Recharge','Allego','TotalEnergies','Mercedes-Benz','Porsche','Audi','Overige / onbekend'];
+ let selectedNetwork='Alle';
+ const networkBtn=document.getElementById('networkBtn');
+ function stationNetwork(item){
+  const t=item.tags||{};
+  const values=[t.brand,t.operator,t.network,t.name].filter(Boolean).map(v=>String(v).toLowerCase());
+  const checks=[['Tesla',/tesla|supercharger/],['BYD',/\bbyd\b/],['Fastned',/fastned/],['IONITY',/ionity/],['Shell Recharge',/shell recharge|shell ev|shell newmotion|newmotion/],['Allego',/allego/],['TotalEnergies',/totalenergies|total energies/],['Mercedes-Benz',/mercedes.benz charging|mercedes charging/],['Porsche',/porsche charging|porsche lounge/],['Audi',/audi charging hub/]];
+  for(const [name,re] of checks){if(values.some(v=>re.test(v)))return name;}
+  return 'Overige / onbekend';
+ }
+ function visibleStations(){return selectedNetwork==='Alle'?stations:stations.filter(s=>stationNetwork(s)===selectedNetwork);}
+ networkBtn.addEventListener('click',()=>{
+  selectedNetwork=NETWORKS[(NETWORKS.indexOf(selectedNetwork)+1)%NETWORKS.length];
+  networkBtn.textContent='🏷️ '+selectedNetwork;
+  renderStations(stations);
+  msg('Laadnetwerk: '+selectedNetwork,selectedNetwork==='Alle'?'Alle gevonden laadstations zijn zichtbaar.':'Dit is een vrijwillig filter. Tik opnieuw voor een ander netwerk.');
+ });
+ function renderStations(items){
  // HYPERSPEED: MapLibre WebGL layers instead of thousands of DOM markers.
  stations=items;
  const features=[];
@@ -77,21 +115,21 @@ function renderStations(items){
   if(!Number.isFinite(lat)||!Number.isFinite(lon))continue;
   const tags=item.tags||{};
   const fast=Object.keys(tags).some(k=>k.includes('ccs')||k.includes('chademo'))||item.fast===true;
-  features.push({type:'Feature',geometry:{type:'Point',coordinates:[lon,lat]},properties:{idx:i,kind:fast?'DC':'AC'}});
+  features.push({type:'Feature',geometry:{type:'Point',coordinates:[lon,lat]},properties:{idx:stations.indexOf(item),kind:fast?'DC':'AC'}});
  }
  const source=map&&map.getSource('chargers');
  if(source && chargerLayersReady){
    try {source.setData({type:'FeatureCollection',features});chargerFallback=false;clearFallbackPins();}
-   catch(e){diag('Kaartlaag fout: '+e.message);chargerFallback=true;renderFallbackPins(items);}
-  } else {chargerFallback=true;renderFallbackPins(items);diag('GPU-laag ontbreekt: reservepunten zichtbaar');}
+   catch(e){diag('Kaartlaag fout: '+e.message);chargerFallback=true;renderFallbackPins(displayed);}
+  } else {chargerFallback=true;renderFallbackPins(displayed);diag('GPU-laag ontbreekt: reservepunten zichtbaar');}
   if(source && chargerLayersReady && features.length){
    // If a map style fails to render the layer, offer a small visible fallback.
    setTimeout(()=>{if(!map||!stations.length||!map.isStyleLoaded())return;
     const layer=map.getLayer('charger-points');
-    if(!layer){chargerFallback=true;renderFallbackPins(stations);diag('GPU-laag niet aanwezig: reservepunten getekend');}
+    if(!layer){chargerFallback=true;renderFallbackPins(visibleStations());diag('GPU-laag niet aanwezig: reservepunten getekend');}
    },800);
   }
-  diag('Kaartpunten: '+features.length+' van '+items.length+' laadlocaties getekend.');
+  diag('Kaartpunten: '+features.length+' van '+items.length+' laadlocaties getekend · filter '+selectedNetwork);
 }
 function clearFallbackPins(){pins.forEach(p=>p.remove());pins=[];}
 function renderFallbackPins(items){
@@ -220,6 +258,23 @@ function enhanceMapStyle(){
  }
 }
 
+// Optionele satellietlaag: externe luchtfoto's, internet vereist.
+const satBtn=document.getElementById('satBtn');let satelliteOn=false;
+function toggleSatellite(){
+ if(!map||!map.isStyleLoaded()){msg('Kaart nog laden','Probeer het zo opnieuw.');return;}
+ try{
+  if(!map.getSource('chargeup-imagery'))map.addSource('chargeup-imagery',{type:'raster',tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],tileSize:256,attribution:'Imagery © Esri and imagery providers',maxzoom:19});
+  if(!map.getLayer('chargeup-imagery')){
+   const firstLabel=map.getStyle().layers.find(l=>l.type==='symbol')?.id;
+   map.addLayer({id:'chargeup-imagery',type:'raster',source:'chargeup-imagery',layout:{visibility:'none'},paint:{'raster-opacity':1}},firstLabel);
+  }
+  satelliteOn=!satelliteOn;
+  map.setLayoutProperty('chargeup-imagery','visibility',satelliteOn?'visible':'none');
+  satBtn.textContent=satelliteOn?'🗺️ Normale kaart':'🛰️ Satellietkaart';
+  satBtn.setAttribute('aria-pressed',String(satelliteOn));
+ }catch(e){console.warn('Satellietkaart:',e);msg('Satellietkaart niet beschikbaar','Controleer je internetverbinding.');}
+}
+satBtn.addEventListener('click',toggleSatellite);
 map.on('load',()=>{try{const style=map.getStyle();try{enhanceMapStyle();}catch(e){console.warn('Kaartstijl:',e);} const vectorSource=Object.entries(style.sources||{}).find(([k,v])=>v.type==='vector' && (k==='openmaptiles'||k==='composite'))?.[0];if(vectorSource){const firstLabel=style.layers.find(l=>l.type==='symbol')?.id;map.addLayer({id:'chargeup-3d-buildings',type:'fill-extrusion',source:vectorSource,'source-layer':'building',minzoom:14,filter:['all',['!=',['get','hide_3d'],true]],paint:{'fill-extrusion-color':'#b8c8c1','fill-extrusion-height':['interpolate',['linear'],['zoom'],14,0,15,['coalesce',['to-number',['get','render_height']],['to-number',['get','height']],12]],'fill-extrusion-base':['coalesce',['to-number',['get','render_min_height']],['to-number',['get','min_height']],0],'fill-extrusion-opacity':0.7}},firstLabel);}}catch(e){console.warn('3D-gebouwen niet beschikbaar:',e);}try{initChargerLayers();}catch(err){chargerLayersReady=false;diag('GPU-laadpaallagen konden niet starten: '+(err.message||err));console.error('Charger layers:',err);}
 map.addSource('chargeup-route',{type:'geojson',data:{type:'FeatureCollection',features:[]}});map.addLayer({id:'chargeup-route-line-outline',type:'line',source:'chargeup-route',layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#ffffff','line-width':11,'line-opacity':0.92}});map.addLayer({id:'chargeup-route-line',type:'line',source:'chargeup-route',layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#1987ff','line-width':7,'line-opacity':0.97}});map.addSource('accuracy',{type:'geojson',data:{type:'FeatureCollection',features:[]}});map.addLayer({id:'accuracy-fill',type:'fill',source:'accuracy',paint:{'fill-color':'#1987ff','fill-opacity':0.13}});map.addLayer({id:'accuracy-outline',type:'line',source:'accuracy',paint:{'line-color':'#1987ff','line-width':1.5}});for(const layerId of ['charger-clusters','charger-cluster-count','charger-points','charger-symbol'])if(map.getLayer(layerId))map.moveLayer(layerId);if(!startupPosition)reset();
 msg('Locatie zoeken…',startupPosition?'Laatst bekende omgeving wordt getoond; GPS wordt bijgewerkt.':'GPS zoekt je huidige omgeving.');
