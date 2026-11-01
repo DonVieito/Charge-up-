@@ -6,7 +6,7 @@ on:
     branches:
       - Charge-up-3.0-android
     paths:
-      - 'ChargeUp-3.0-Android-alpha5-diagnose-fallback.zip'
+      - 'ChargeUp-3.0-Android-alpha6-navigation-ui.zip'
       - '.github/workflows/build-android.yml'
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
       - name: Unpack Android project
         run: |
           mkdir -p android-project
-          unzip -q ChargeUp-3.0-Android-alpha5-diagnose-fallback.zip -d android-project
+          unzip -q ChargeUp-3.0-Android-alpha6-navigation-ui.zip -d android-project
 
       - name: Install Java
         uses: actions/setup-java@v4
